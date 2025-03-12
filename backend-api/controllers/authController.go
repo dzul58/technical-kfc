@@ -25,7 +25,6 @@ func Register(c *gin.Context) {
 
 	config.DB.Create(&user)
 
-	// Hapus password dari respons dan kembalikan hanya id dan username
 	c.JSON(http.StatusCreated, gin.H{
 		"id":       user.ID,
 		"username": user.Username,
@@ -50,7 +49,7 @@ func Login(c *gin.Context) {
 	// Generate JWT token
 	token := generateJWT(foundUser.ID)
 
-	// Kembalikan hanya token
+	// Kembalikan token
 	c.JSON(http.StatusOK, gin.H{
 		"token": token,
 	})
