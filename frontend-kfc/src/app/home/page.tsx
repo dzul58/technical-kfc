@@ -17,8 +17,6 @@ export default function Home() {
             return;
         }
 
-        // Get user info from token (this is a simplified example)
-        // In a real app, you might want to validate the token with your backend
         try {
             // Simple decode of the JWT payload (this is not secure, just for display purposes)
             const payload = JSON.parse(atob(token.split('.')[1]));
